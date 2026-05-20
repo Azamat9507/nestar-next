@@ -111,12 +111,12 @@ const PropertyDetail: NextPage = ({ initialComment, ...props }: any) => {
 		refetch: getCommentsRefetch,
 	} = useQuery(GET_COMMENTS, {
 		fetchPolicy: 'cache-and-network',
-		variables: { input: initialComment },
+		variables: { input: commentInquiry },
 		skip: !commentInquiry.search.commentRefId,
 		notifyOnNetworkStatusChange: true,
 		onCompleted: (data: T) => {
 			if (data?.getComments?.list) setPropertyComments(data?.getComments?.list);
-			setCommentTotal(data?.getComments?.metaCounter(0)?.total ?? 0);
+			setCommentTotal(data?.getComments?.metaCounter[0]?.total ?? 0);
 		},
 	});
 				
