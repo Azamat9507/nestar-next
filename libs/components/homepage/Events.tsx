@@ -10,30 +10,30 @@ interface EventData {
 }
 const eventsData: EventData[] = [
 	{
-		eventTitle: 'Paradise City Theme Park',
+		eventTitle: 'Dron Shou',
 		city: 'Incheon',
 		description:
-			'Experience magic and wonder in Incheon with a visit to the night-themed indoor theme park Wonderbox at Paradise City!',
-		imageSrc: '/img/events/INCHEON.webp',
+			'Experience magic and dron shou in Incheon',
+		imageSrc: '/img/events/Incheon.png',
 	},
 	{
-		eventTitle: 'Taebaeksan Snow Festival',
+		eventTitle: 'HighLights Festival',
 		city: 'Seoul',
-		description: 'If you have the opportunity to travel to South Korea, do not miss the Taebaeksan Snow Festival!',
-		imageSrc: '/img/events/SEOUL.webp',
+		description: 'If you have the opportunity to travel to South Korea, do not miss the HighLights Festival!',
+		imageSrc: '/img/events/HighLits.jpeg',
 	},
 	{
-		eventTitle: 'Suseong Lake Event',
-		city: 'Daegu',
-		description: 'The Suseong Lake Festival is a culture and arts festival held alongside Suseongmot Lake!',
-		imageSrc: '/img/events/DAEGU.webp',
-	},
-	{
-		eventTitle: 'Sand Festival',
+		eventTitle: 'Korean Culture',
 		city: 'Busan',
+		description: 'The most famouse Korean Culture',
+		imageSrc: '/img/events/Korean_culture.jpg',
+	},
+	{
+		eventTitle: 'Starlight Festival',
+		city: 'Daegu',
 		description:
-			'Haeundae Sand Festival, the nation’s largest eco-friendly exhibition on sand, is held at Haeundae Beach!',
-		imageSrc: '/img/events/BUSAN.webp',
+			'Starlight Festival in South Korean!',
+		imageSrc: '/img/events/starlight-festival.jpg',
 	},
 ];
 
