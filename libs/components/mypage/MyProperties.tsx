@@ -3,13 +3,13 @@ import { NextPage } from 'next';
 import { Pagination, Stack, Typography } from '@mui/material';
 import useDeviceDetect from '../../hooks/useDeviceDetect';
 import { PropertyCard } from './PropertyCard';
+import { useMutation, useQuery, useReactiveVar } from '@apollo/client';
 import { Property } from '../../types/property/property';
 import { AgentPropertiesInquiry } from '../../types/property/property.input';
 import { T } from '../../types/common';
 import { PropertyStatus } from '../../enums/property.enum';
 import { userVar } from '../../../apollo/store';
 import { useRouter } from 'next/router';
-import { useMutation, useQuery, useReactiveVar } from '@apollo/client';
 import { UPDATE_PROPERTY } from '../../../apollo/user/mutation';
 import { GET_AGENT_PROPERTIES } from '../../../apollo/user/query';
 import { sweetConfirmAlert, sweetErrorHandling } from '../../sweetAlert';
@@ -69,8 +69,6 @@ const MyProperties: NextPage = ({ initialInput, ...props }: any) => {
 	};
 
 	const updatePropertyHandler = async (status: string, id: string) => {
-		const scrollY = window.scrollY;
-
 		try {
 			if (await sweetConfirmAlert(`Are you sure change to ${status} status?`)) {
 				await updateProperty({
@@ -83,10 +81,6 @@ const MyProperties: NextPage = ({ initialInput, ...props }: any) => {
 				});
 
 				await getAgentPropertiesRefetch({ input: searchFilter });
-
-				requestAnimationFrame(() => {
-					window.scrollTo({ top: scrollY });
-				});
 			}
 		} catch (err: any) {
 			await sweetErrorHandling(err);
@@ -129,7 +123,7 @@ const MyProperties: NextPage = ({ initialInput, ...props }: any) => {
 							<Typography className="title-text">Date Published</Typography>
 							<Typography className="title-text">Status</Typography>
 							<Typography className="title-text">View</Typography>
-							{searchFilter.search.propertyStatus === 'ACTIVE' && <Typography className="title-text">Action</Typography>}
+							{searchFilter.search.propertyStatus === 'ACTIVE' &&  <Typography className="title-text">Action</Typography>}
 						</Stack>
 
 						{agentProperties?.length === 0 ? (
