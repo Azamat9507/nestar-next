@@ -1,38 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Nestar — web client
 
-## Getting Started
+Next.js frontend for **Nestar**, a real-estate marketplace: property search and detail pages, agent profiles, a community board, user accounts and an admin panel. It talks to a NestJS GraphQL API.
 
-First, run the development server:
+## Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+- **Framework:** Next.js 14 (pages router), React, TypeScript
+- **Data:** Apollo Client (queries, mutations, file uploads, WebSocket link)
+- **UI:** MUI, SCSS, Swiper
+- **i18n:** next-i18next — English, Korean, Russian
+- **Editor:** Toast UI Editor for community articles
+
+## Pages
+
+| Route | Purpose |
+|---|---|
+| `/` | Home: top, popular and trending properties, top agents, community boards |
+| `/property`, `/property/detail` | Property search with filters, property detail |
+| `/agent`, `/agent/detail` | Agent directory and agent profile |
+| `/community`, `/community/detail` | Community articles and comments |
+| `/mypage` | Own properties, profile, article writing |
+| `/member` | Public member profile |
+| `/account/join` | Sign up and log in |
+| `/cs` | Customer support |
+| `/_admin` | Admin panel: users, properties, community, support (FAQ, notices, inquiries) |
+
+## Project structure
+
+```
+pages/        routes
+libs/         components, hooks, auth, types, enums
+apollo/       Apollo Client setup and GraphQL operations (user, admin)
+scss/         styles
+public/       static assets and locale files
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Getting started
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn install
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Create `.env` in the project root:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```
+REACT_APP_API_URL=http://localhost:3007
+REACT_APP_API_GRAPHQL_URL=http://localhost:3007/graphql
+REACT_APP_API_WS=ws://localhost:3007
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+yarn dev
+```
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The app runs on http://localhost:3000.
